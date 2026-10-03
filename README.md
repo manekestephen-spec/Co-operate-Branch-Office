@@ -21,77 +21,103 @@ These controls help protect the physical switch ports, prevent unauthorized acce
 - Native VLAN 99
 - Port Scurity
 
-##Hardware & Software Used
-•	Cisco 2951 Router 
-•	Cisco Catalyst 2960 Switch 
-•	Laptop 
-•	Mini PC 
-•	Ethernet straight-through cables 
-•	Console cable 
-•	Cisco Packet Tracer 
-•	IOS CLI
+## Hardware & Software Used
+
+### 🖥️ Equipment & Hardware
+* **Cisco 2951 Router**
+* **Cisco Catalyst 2960 Switch**
+* **Laptop**
+* **Mini PC**
+* **Ethernet straight-through cables**
+* **Console cable**
+
+### 💻 Software & Interfaces
+* **Cisco Packet Tracer**
+* **IOS CLI**
 
 ##Topologies 
-[CO-OPERATE_BRANCE_OFFICE_TOPOLOGY.docx](https://github.com/user-attachments/files/33010245/CO-OPERATE_BRANCE_OFFICE_TOPOLOGY.docx)
+* **[CO-OPERATE_BRANCE_OFFICE_TOPOLOGY.docx](https://github.com/user-attachments/files/33010245/CO-OPERATE_BRANCE_OFFICE_TOPOLOGY.docx)**
 
-Physical Topology
-<img width="794" height="560" alt="image" src="https://github.com/user-attachments/assets/0a9ab21f-5b27-418e-9a12-a66f81df88a3" />
-<img width="774" height="581" alt="image" src="https://github.com/user-attachments/assets/bd56fd77-3aa3-4f65-b3e5-04e4078accd2" />
 
-Simulated Topology
+
+##Physical Topology
+* **<img width="794" height="560" alt="image" src="https://github.com/user-attachments/assets/0a9ab21f-5b27-418e-9a12-a66f81df88a3" />*
+
+
+* **<img width="774" height="581" alt="image" src="https://github.com/user-attachments/assets/bd56fd77-3aa3-4f65-b3e5-04e4078accd2" />*
+
+
+
+
+##Simulated Topology
 <img width="977" height="510" alt="image" src="https://github.com/user-attachments/assets/9e87e0f3-6b91-4f90-a6fb-315c35ff9297" />
 
 
-##IP Addressing & VLAN Design 
-VLAN ID	  | DEPARTMENT	     |SUBNET	         |  GATEWAY
-VLAN 10   | CLINICAL_Ops	   |192.168.10.0/24  |	 192.168.10.1
-VLAN 20   | TELEMETRY	       |192.168.20.0/24	 |  192.168.20.1
-VLAN 99   | MANAGEMENT VLAN	 |192.168.99.0/24	 |  192.168.99.1
+## IP Addressing & VLAN Design
 
-##Technical Implementation
-VLAN Segmentation
-•	VLAN 10 – Clinical Operations 
-•	VLAN 20 – Telemetry 
-•	VLAN 99 – Management (SSH)
+| VLAN ID | Department | Subnet | Gateway |
+| :---: | :--- | :--- | :--- |
+| **VLAN 10** | CLINICAL_Ops | `192.168.10.0/24` | `192.168.10.1` |
+| **VLAN 20** | TELEMETRY | `192.168.20.0/24` | `192.168.20.1` |
+| **VLAN 99** | MANAGEMENT VLAN | `192.168.99.0/24` | `192.168.99.1` |
 
-Trunking & 802.1Q
-•	Configured the router-to-switch trunk. 
-•	Used IEEE 802.1Q VLAN tagging. 
 
-Router-on-a-Stick (ROAS)
-•	Configured router sub interfaces. 
-•	Enabled inter-VLAN routing.
+## Technical Implementation
 
-STP & Layer 2 Protection
-•	Spanning Tree Protocol (STP) 
-•	PortFast 
-•	BPDU Guard
+### 1. VLAN Segmentation
+* **VLAN 10** – Clinical Operations 
+* **VLAN 20** – Telemetry 
+* **VLAN 99** – Management (SSH)
 
-DHCP & IP Addressing
-•	Configured DHCP pools. 
-•	Provided automated IP addressing to end hosts.
+### 2. Trunking & 802.1Q
+* Configured the router-to-switch trunk. 
+* Used IEEE 802.1Q VLAN tagging. 
 
-Device Access Security
-•	Enable secret 
-•	Secure console access 
-•	Secure VTY/SSH access 
-•	Login/authorization banner
+### 3. Router-on-a-Stick (ROAS)
+* Configured router sub-interfaces. 
+* Enabled inter-VLAN routing. 
 
-Switch Port Security
-•	Configured port security. 
-•	Restricted unauthorized devices. 
-•	Applied appropriate violation controls. 
+### 4. STP & Layer 2 Protection
+* Spanning Tree Protocol (STP) configuration.
+* PortFast deployment on host-facing ports.
+* BPDU Guard activation to prevent rogue switches.
 
-Unused-Port Security
-•	Secured or disabled unused switch ports. 
-•	Reduced the available attack surface.
+### 5. DHCP & IP Addressing
+* Configured dynamic DHCP pools. 
+* Provided automated IP addressing to end hosts. 
 
-Testing & Verification
-•	VLAN verification 
-•	Trunk verification 
-•	DHCP verification 
-•	Inter-VLAN connectivity 
-•	Security configuration verification
+### 6. Device Access Security
+* Configured `enable secret` password encryption.
+* Secured physical console access. 
+* Restricted VTY lines to secure SSH access only. 
+* Enforced legal compliance with a login/authorization banner. 
+
+### 7. Switch Port Security
+* Configured port security parameters on access ports. 
+* Restricted unauthorized device connection via MAC address binding. 
+* Applied appropriate violation controls (e.g., shutdown mode). 
+
+### 8. Unused-Port Security
+* Disabled all unused switch ports (`shutdown`). 
+* Moved unused ports to an isolated VLAN to reduce the available attack surface. 
+
+### 9. Testing & Verification
+* **VLAN verification:** Confirmed VLAN database alignment.
+* **Trunk verification:** Validated operational trunk status.
+* **DHCP verification:** Ensured clients successfully lease IP addresses.
+* **Inter-VLAN connectivity:** Performed end-to-end ping testing between subnets.
+* **Security configuration verification:** Validated SSH access and port security actions.
+
+
+## Testing & Verification
+https://github.com/user-attachments/assets/fa67582f-fdd8-44cc-af79-24cad037ec77
+
+* **VLAN verification:** Confirm VLANs are created and active.
+* **Trunk verification:** Verify trunking links between switches.
+* **DHCP verification:** Test if end devices receive correct IP addresses.
+* **Inter-VLAN connectivity:** Ping between different VLAN departments.
+* **Security configuration verification:** Ensure management VLAN isolation.
+
 
 ## Troubleshooting
 Symptom: End-to-end Inter-VLAN pings between the testing laptop and the HP T630 Mini PC results in inconsistent ICMP delivery rates fluctuating between 25% and 75%, displaying severe packet drop rates (fluctuating between 25% and 75% success).
@@ -100,8 +126,12 @@ Root Cause: Dual-homed network interface conflicts and wireless Layer 2 bridging
 
 Resolution: Disabled the wireless (Wi-Fi) adapter on the laptop and forced all network communications through a dedicated physical Ethernet media connection. This completely cleared the operating system's routing table confusion and allowed the hardware switch to properly handle the VLAN tagging. Following the adjustment, end-to-end ICMP pings between the laptop and the HP T630 Mini PC stabilized at a flawless 100% success rate.
 
+
+
 ## Device Running Configurations Files 
 [CO-OPERATE_BRANCH_OFFICE_RUNNING-CONFIG.docx](https://github.com/user-attachments/files/33010222/CO-OPERATE_BRANCH_OFFICE_RUNNING-CONFIG.docx)
+
+
 
 ##Device Configurations Files 
 [CO-OPERATE BRANCH OFFICE_CONFIGURATION_File.docx](https://github.com/user-attachments/files/33010239/CO-OPERATE.BRANCH.OFFICE_CONFIGURATION_File.docx)
