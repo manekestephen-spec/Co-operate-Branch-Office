@@ -49,44 +49,44 @@ VLAN 20   | TELEMETRY	       |192.168.20.0/24	 |  192.168.20.1
 VLAN 99   | MANAGEMENT VLAN	 |192.168.99.0/24	 |  192.168.99.1
 
 ##Technical Implementation
-#VLAN Segmentation
+VLAN Segmentation
 •	VLAN 10 – Clinical Operations 
 •	VLAN 20 – Telemetry 
 •	VLAN 99 – Management (SSH)
 
-#Trunking & 802.1Q
+Trunking & 802.1Q
 •	Configured the router-to-switch trunk. 
 •	Used IEEE 802.1Q VLAN tagging. 
 
-#Router-on-a-Stick (ROAS)
+Router-on-a-Stick (ROAS)
 •	Configured router sub interfaces. 
 •	Enabled inter-VLAN routing.
 
-#STP & Layer 2 Protection
+STP & Layer 2 Protection
 •	Spanning Tree Protocol (STP) 
 •	PortFast 
 •	BPDU Guard
 
-#DHCP & IP Addressing
+DHCP & IP Addressing
 •	Configured DHCP pools. 
 •	Provided automated IP addressing to end hosts.
 
-#Device Access Security
+Device Access Security
 •	Enable secret 
 •	Secure console access 
 •	Secure VTY/SSH access 
 •	Login/authorization banner
 
-#Switch Port Security
+Switch Port Security
 •	Configured port security. 
 •	Restricted unauthorized devices. 
 •	Applied appropriate violation controls. 
 
-#Unused-Port Security
+Unused-Port Security
 •	Secured or disabled unused switch ports. 
 •	Reduced the available attack surface.
 
-#Testing & Verification
+Testing & Verification
 •	VLAN verification 
 •	Trunk verification 
 •	DHCP verification 
